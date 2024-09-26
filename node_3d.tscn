@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_51sq7"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="2_6aaw5"]
 [ext_resource type="Resource" path="res://data.hterrain" id="2_cxa44"]
-[ext_resource type="Texture2D" uid="uid://dg2xuehwufsom" path="res://assets/road_low/road.png" id="4_d3wni"]
+[ext_resource type="Texture2D" uid="uid://cbhb80pgl675p" path="res://assets/roadv2/dirt.png" id="4_6uwja"]
 [ext_resource type="Texture2D" uid="uid://p8oxlvnvsvkt" path="res://assets/grassSub/grass2.0.png" id="5_uiomx"]
 [ext_resource type="PackedScene" uid="uid://c7dx80ixi2ksk" path="res://world/doodads/tree.tscn" id="6_wo3fo"]
 [ext_resource type="Texture2D" uid="uid://d10uwougpwm8k" path="res://assets/rocks/rocks.png" id="6_xxe50"]
@@ -19,7 +19,7 @@ albedo_color = Color(0.122258, 0.719792, 0.896692, 1)
 [sub_resource type="Resource" id="Resource_ae3w0"]
 script = ExtResource("2_6aaw5")
 mode = 0
-textures = [[ExtResource("4_d3wni"), ExtResource("5_uiomx"), ExtResource("6_xxe50"), null], [ExtResource("7_akwt1"), ExtResource("8_hmnsx"), null, null]]
+textures = [[ExtResource("4_6uwja"), ExtResource("5_uiomx"), ExtResource("6_xxe50"), null], [ExtResource("7_akwt1"), ExtResource("8_hmnsx"), null, null]]
 
 [node name="main" type="Node3D"]
 
@@ -49,7 +49,7 @@ shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.999998, -0.000596953, 0.00164012, 0, 0.939693, 0.34202, -0.00174537, 0.34202, -0.939691, 558.535, 400.816, 730.011)
+transform = Transform3D(-0.999998, -0.000451736, 0.0016859, 0, 0.965926, 0.258819, -0.00174537, 0.258819, -0.965924, 558.535, 400.816, 730.011)
 light_color = Color(1, 1, 0.894118, 1)
 
 [node name="Trees" type="Node3D" parent="."]
