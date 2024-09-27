@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://nj43yvt4lxni"]
+[gd_scene load_steps=19 format=3 uid="uid://nj43yvt4lxni"]
 
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="1_51sq7"]
+[ext_resource type="Script" path="res://camara.gd" id="1_fp2k4"]
+[ext_resource type="PackedScene" uid="uid://0tf0ov01guag" path="res://world/units/peasant/peasant.gltf" id="1_h768y"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="2_6aaw5"]
 [ext_resource type="Resource" path="res://data.hterrain" id="2_cxa44"]
 [ext_resource type="Texture2D" uid="uid://cbhb80pgl675p" path="res://assets/roadv2/dirt.png" id="4_6uwja"]
@@ -24,11 +26,19 @@ textures = [[ExtResource("4_6uwja"), ExtResource("5_uiomx"), ExtResource("6_xxe5
 
 [sub_resource type="BoxMesh" id="BoxMesh_xvhmg"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3wpfc"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_jfbw0"]
 
+[sub_resource type="Environment" id="Environment_bljsn"]
+background_energy_multiplier = 9.0
+
 [node name="main" type="Node3D"]
+
+[node name="blockbench_export3" parent="." instance=ExtResource("1_h768y")]
+transform = Transform3D(11.9711, 0, -21.9475, 0, 25, 0, 21.9475, 0, 11.9711, 2388.85, 120.224, 2701.93)
+
+[node name="camara" type="Camera3D" parent="."]
+transform = Transform3D(-1, -5.01437e-08, 7.16126e-08, 0, 0.819152, 0.573577, -8.74228e-08, 0.573577, -0.819152, 534.258, 82.2053, 19.2686)
+script = ExtResource("1_fp2k4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(509.92, 0, 0, 0, 1, 0, 0, 0, 561.742, 500.771, 1.01216, 512.609)
@@ -58,7 +68,7 @@ shader_params/u_tile_reduction = null
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.999998, -0.000451736, 0.0016859, 0, 0.965926, 0.258819, -0.00174537, 0.258819, -0.965924, 558.535, 400.816, 730.011)
+transform = Transform3D(-0.999998, -0.000872688, -0.00151154, 0, -0.866026, 0.5, -0.00174537, 0.5, 0.866024, 558.535, 400.816, 730.011)
 light_color = Color(1, 1, 0.894118, 1)
 metadata/_edit_lock_ = true
 
@@ -322,9 +332,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 526.545, -3.05176e-05, 251.10
 transform = Transform3D(43.1438, 0, -3.0325, 0, 10, 0, 25.2708, 0, 5.17725, 40.0897, 15.02, -12.847)
 mesh = SubResource("BoxMesh_xvhmg")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Citys/Oceghar/MeshInstance3D"]
-shape = SubResource("BoxShape3D_3wpfc")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="World/Citys/Oceghar"]
 transform = Transform3D(49.9822, 0, -0.159888, 0, 10, 0, 1.3324, 0, 5.99787, -25.3254, 15.02, -27.0995)
 mesh = SubResource("BoxMesh_xvhmg")
@@ -414,3 +421,33 @@ mesh = SubResource("BoxMesh_jfbw0")
 [node name="Slaver2" type="MeshInstance3D" parent="World"]
 transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 293.317, 12.7534, 871.679)
 mesh = SubResource("BoxMesh_jfbw0")
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_h768y")]
+transform = Transform3D(-43.0947, 0, 25.3544, 0, 50, 0, -25.3544, 0, -43.0947, 575.045, 10.3288, 219.532)
+
+[node name="blockbench_export2" parent="." instance=ExtResource("1_h768y")]
+transform = Transform3D(4.29948, 0, -2.55234, 0, 5, 0, 2.55234, 0, 4.29948, 560.035, 20.0374, 234.553)
+
+[node name="blockbench_export4" parent="." instance=ExtResource("1_h768y")]
+transform = Transform3D(-3.29146, -2.88531, -2.41687, -0.347666, -2.96387, 4.01181, -3.74772, 2.80899, 1.75047, 561.647, 20.0374, 239.452)
+
+[node name="blockbench_export5" parent="." instance=ExtResource("1_h768y")]
+transform = Transform3D(4.29948, 0, -2.55234, 0, 5, 0, 2.55234, 0, 4.29948, 568.806, 20.0374, 239.76)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_scale = 291.0
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_right = 0.033
+anchor_bottom = 0.057
+offset_right = 1.984
+offset_bottom = 3.064
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+offset_right = 156.0
+offset_bottom = 137.0
+text = "Iniciar"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bljsn")
